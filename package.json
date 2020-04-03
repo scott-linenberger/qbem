@@ -1,0 +1,27 @@
+{
+  "name": "qbem",
+  "version": "1.0.0",
+  "description": "A Quick BEM helper!",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scott-linenberger/qbem.git"
+  },
+  "keywords": [
+    "bem",
+    "css",
+    "helper",
+    "util",
+    "style",
+    "classnames"
+  ],
+  "author": "Scott Linenberger",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/scott-linenberger/qbem/issues"
+  },
+  "homepage": "https://github.com/scott-linenberger/qbem#readme"
+}
