@@ -5,6 +5,10 @@ export class QBem {
   private _block: string;
 
   constructor(block: string) {
+    if (!block) {
+      throw new Error('QBem: could not construct instance: block name undefined! ');
+    }
+
     this._block = block;
   }
 
