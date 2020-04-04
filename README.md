@@ -155,7 +155,7 @@ Manual method for creating a BEM style class string for a BEM element with a BEM
 
 Method for creating a BEM style class string. Uses the BEM block name associated with this instance of `QBem`.
 
-### `element(element: string, modifiers: (string | QBemConditionalModifier)[] | undefined = [])`
+#### `element(element: string, modifiers: (string | QBemConditionalModifier)[] | undefined = [])`
 
 Method for creating a BEM style class string. Uses the BEM block name associated with this instance of `QBem` and the supplied BEM element name.
 
