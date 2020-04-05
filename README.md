@@ -38,6 +38,12 @@ npm install qbem
 Quick Guide
 
 ```ts
+/* import or require */
+import { QBem } from 'qbem';
+
+/* or */
+require { QBem } from 'qbem';
+
 /* create an instance of QBem with your block name */
 /*        doesn't matter what you name it          */
 /*          I like 'qb' b/c it's short             */
@@ -133,7 +139,7 @@ const ToggleBtn: FC = (props) => {
 ### Creating a new instance of QBem
 ```ts
 /* import */
-import QBem from 'qbem';
+import { QBem } from 'qbem';
 
 /* create an instance per block */
 const qb = new QBem('block-name');
