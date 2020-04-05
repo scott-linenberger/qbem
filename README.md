@@ -1,25 +1,84 @@
 [![License](https://badgen.net/npm/license/qbem)](https://www.npmjs.com/package/qbem)
 [![NPM version](https://badgen.net/npm/v/qbem)](https://www.npmjs.com/package/qbem)
 [![types](https://badgen.net/npm/types/qbem)](https://www.npmjs.com/package/qbem)
+[![publish size](https://badgen.net/packagephobia/publish/qbem)](https://www.npmjs.com/package/qbem)
 
 # qbem
-A quick [BEM][BEM] helper! Because BEM rules, typing a lot doesn't.
+A quick [BEM][BEM] helper! More BEM. Less Typing.
+
+```text
+/*
+ *         ._.
+ *         | | +-+ QUICK-BEM +-+
+ *     __._| |_.   .__.   ._. ._.
+ *  . / _. | ._ \./ _  \. / _V_ \.   * Block
+ *   | (_| | |_) |  __./.| ||_|| |   * Element
+ *  . \__, |_.__/.\___|. |_|   |_|.  * Modifier
+ * ------| |------------------------
+ *      .|_|. More BEM. Less Typing.
+ */
+```
 
 ## Install
 
 Using yarn
+
 ```bash
-$ yarn add qbem
+yarn add qbem
 ```
 
 Using npm
+
 ```bash
-$ npm install qbem
+npm install qbem
 ```
 
 ## Usage
 
+Quick Guide
+
+```ts
+/* create an instance of QBem with your block name */
+/*        doesn't matter what you name it          */
+/*          I like 'qb' b/c it's short             */
+
+const qb = new QBem('form');
+
+
+/* need your block style? Do this: */
+qb.block(); // returns: 'form'
+
+/* need modifiers for your block? Do this: */
+qb.block(['active']); // returns: 'form form--active'
+
+/* want to make those modifiers conditional? Do this: */
+qb.block([
+  {
+   ['active']: someTrueCondition,
+   ['inactive']: someFalsyCondition, // modifiers with falsy conditions won't be added
+  }
+]); // returns: 'form form-active'
+
+/* need an element? Do this: */
+qb.element('input'); // returns: 'form__input'
+
+/* need modifiers for your element? Do this: */
+qb.element('input', ['active']); // returns: 'form__input form__input--active'
+
+/* want to make those modifiers conditional? Do this: */
+qb.element(
+  'input',
+  [
+    {
+      ['active']: someTrueCondition,
+      ['inactive']: someFalsyCondition, // modifiers with falsy conditions won't be added
+    }
+  ]
+); // returns: 'form__input form__input--active`
+```
+
 ### Use anywhere you template HTML
+
 ```ts
 const qb = new QBem('form');
 
@@ -137,7 +196,7 @@ qb.element('element', ['active', 'dark-mode']);
 
 ### Constructor
 
-`QBem(blockName)` -- Creates a new `QBem` object using the supplied `blockName`.
+`QBem(blockName: string)` -- Creates a new `QBem` object using the supplied `blockName`.
 
 The `blockName` will be used as the "block" portion of BEM strings created with the instance.
 

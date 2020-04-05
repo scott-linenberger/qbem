@@ -1,45 +1,39 @@
 {
-  "name": "qbem",
-  "version": "0.5.0",
-  "description": "A Quick BEM helper!",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "test": "jest",
-    "lint": "eslint ./src --ext .ts",
-    "build": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/scott-linenberger/qbem.git"
-  },
-  "keywords": [
-    "bem",
-    "css",
-    "helper",
-    "util",
-    "style",
-    "classnames"
-  ],
-  "author": "Scott Linenberger",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/scott-linenberger/qbem/issues"
-  },
-  "homepage": "https://github.com/scott-linenberger/qbem#readme",
-  "dependencies": {
-    "typescript": "^3.8.3"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-typescript": "^7.9.0",
-    "@types/jest": "^25.2.1",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
-    "babel-jest": "^25.2.6",
-    "eslint": "^6.8.0",
-    "jest": "^25.2.7",
-    "prettier": "2.0.2"
-  }
+	"name": "qbem",
+	"version": "0.5.0",
+	"description": "A Quick BEM helper!",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"test": "jest",
+		"lint": "tslint -c tslint.json 'src/**/*.ts'",
+		"build": "rm -r -f dist && webpack"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/scott-linenberger/qbem.git"
+	},
+	"keywords": [ "bem", "css", "helper", "util", "style", "classnames" ],
+	"author": "Scott Linenberger",
+	"license": "GPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/scott-linenberger/qbem/issues"
+	},
+	"homepage": "https://github.com/scott-linenberger/qbem#readme",
+	"dependencies": {
+		"typescript": "^3.8.3"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.9.0",
+		"@babel/preset-env": "^7.9.0",
+		"@babel/preset-typescript": "^7.9.0",
+		"@babel/types": "^7.9.0",
+		"@types/jest": "^25.2.1",
+		"babel-jest": "^25.2.6",
+		"jest": "^25.2.7",
+		"prettier": "2.0.2",
+		"ts-loader": "^6.2.2",
+		"webpack": "^4.42.1",
+		"webpack-cli": "^3.3.11"
+	}
 }

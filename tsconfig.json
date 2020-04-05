@@ -8,7 +8,7 @@
     "strict": true,                           /* Enable all strict type-checking options. */
     "esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     "baseUrl": "./src",                       /* Base directory to resolve non-absolute module names. */
-    "lib": ["ES2017"],                             /* Specify library files to be included in the compilation. */
+    "lib": ["ES2017"],
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
     // "allowJs": true,                       /* Allow javascript files to be compiled. */

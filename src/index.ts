@@ -1,11 +1,10 @@
-
 export type QBemConditionalModifier = {
-  [modifierValue: string]: any;
+  [modifierValue: string]: boolean;
 }
 
 export class QBem {
   /* instance variables */
-  private _block: string;
+  private _block: string
 
   /**
    * Creates an instance of `QBem` for a block.
@@ -13,43 +12,12 @@ export class QBem {
    */
   constructor(block: string) {
     if (!block) {
-      throw new Error('QBem: could not construct instance: block name undefined! ');
+      throw new Error(
+        'QBem: could not construct instance: block name undefined! '
+      );
     }
 
-    this._block = block;
-  }
-
-  /**
-   * Manual method for creating a BEM style class string
-   * for a BEM block with a BEM modifier using the BEM block name
-   * associated with this instance of `QBem`.
-   *
-   * **Note:**
-   *
-   * `QBem.block` is more robust and the recommended way
-   * of building this type of string.
-   *
-   * @param modifier - BEM modifier name
-   */
-  public blockWithModifier(modifier: string): string {
-    return `${this._block}--${modifier}`;
-  }
-
-  /**
-   * Manual method for creating a BEM style class string
-   * for a BEM element with a BEM modifier using
-   * the BEM block name associated with this instance of `QBem`.
-   *
-   * **Note:**
-   *
-   * `QBem.element` is more robust and the recommended way
-   * of building this type of string.
-   *
-   * @param element - BEM element name
-   * @param modifier - BEM modifier name
-   */
-  public elementWithModifier(element: string, modifier: string): string {
-    return `${this._block}__${element}--${modifier}`;
+    this._block = block
   }
 
   /**
@@ -87,41 +55,64 @@ export class QBem {
    *
    * @param modifiers - array of BEM modifiers to be added to the class string.
    */
-  public block(modifiers: (string | QBemConditionalModifier)[] | undefined = []): string {
-    let classnames = `${this._block} `;
+  public block(
+    modifiers: (string | QBemConditionalModifier)[] | undefined = []
+  ): string {
+    let classnames = `${this._block} `
 
     if (modifiers.length === 0) {
-      return classnames.trim();
+      return classnames.trim()
     }
 
-    modifiers.forEach((currentModifier: string | QBemConditionalModifier) => {
-      const modifierType = typeof currentModifier;
+    modifiers.forEach(
+      (currentModifier: string | QBemConditionalModifier) => {
+        const modifierType = typeof currentModifier
 
-      switch (modifierType) {
-        case 'string':
-          classnames = classnames.concat(
-            `${this.blockWithModifier(currentModifier as string)} `
-          );
-          break;
+        switch (modifierType) {
+          case 'string':
+            classnames = classnames.concat(
+              `${this.blockWithModifier(
+                currentModifier as string
+              )} `
+            )
+            break
 
-        case 'object':
-          /* iterate the object's properties */
-          Object
-            .entries(currentModifier)
-            .forEach(([key, value]) => {
-              if (value === true) {
-                classnames = classnames.concat(`${this.blockWithModifier(key)} `)
+          case 'object':
+            /* iterate the object's properties */
+            Object.entries(currentModifier).forEach(
+              ([key, value]) => {
+                if (value === true) {
+                  classnames = classnames.concat(
+                    `${this.blockWithModifier(key)} `
+                  )
+                }
               }
-            });
-          break;
+            )
+            break
 
-        default:
-          break;
+          default:
+            break
+        }
       }
+    )
 
-    });
+    return classnames.trim()
+  }
 
-    return classnames.trim();
+  /**
+   * Manual method for creating a BEM style class string
+   * for a BEM block with a BEM modifier using the BEM block name
+   * associated with this instance of `QBem`.
+   *
+   * **Note:**
+   *
+   * `QBem.block` is more robust and the recommended way
+   * of building this type of string.
+   *
+   * @param modifier - BEM modifier name
+   */
+  public blockWithModifier(modifier: string): string {
+    return `${this._block}--${modifier}`
   }
 
   /**
@@ -168,41 +159,65 @@ export class QBem {
    *
    * @param modifiers - array of BEM modifiers to be added to the class string.
    */
-  public element(element: string, modifiers: (string | QBemConditionalModifier)[] | undefined = []): string {
-    let classnames = `${this._block}__${element} `;
+  public element(
+    element: string,
+    modifiers: (string | QBemConditionalModifier)[] | undefined = []
+  ): string {
+    let classnames = `${this._block}__${element} `
 
     if (modifiers.length === 0) {
-      return classnames.trim();
+      return classnames.trim()
     }
 
     modifiers.forEach((currentModifier) => {
-      const modifierType = typeof currentModifier;
+      const modifierType = typeof currentModifier
 
       switch (modifierType) {
         case 'string':
           classnames = classnames.concat(
-            `${this.elementWithModifier(element, currentModifier as string)} `
-          );
-          break;
+            `${this.elementWithModifier(
+              element,
+              currentModifier as string
+            )} `
+          )
+          break
 
         case 'object':
           /* iterate the object's properties */
-          Object
-            .entries(currentModifier)
-            .forEach(([key, value]) => {
-              if (value === true) {
-                classnames = classnames.concat(`${this.elementWithModifier(element, key)} `);
-              }
-            })
-          break;
+          Object.entries(currentModifier).forEach(([key, value]) => {
+            if (value === true) {
+              classnames = classnames.concat(
+                `${this.elementWithModifier(element, key)} `
+              );
+            }
+          })
+          break
 
         default:
-          break;
+          break
       }
-    });
+    })
 
-    return classnames.trim();
+    return classnames.trim()
   }
-};
 
-export default QBem;
+  /**
+   * Manual method for creating a BEM style class string
+   * for a BEM element with a BEM modifier using
+   * the BEM block name associated with this instance of `QBem`.
+   *
+   * **Note:**
+   *
+   * `QBem.element` is more robust and the recommended way
+   * of building this type of string.
+   *
+   * @param element - BEM element name
+   * @param modifier - BEM modifier name
+   */
+  public elementWithModifier(element: string, modifier: string): string {
+    return `${this._block}__${element}--${modifier}`
+  }
+
+}
+
+export default QBem
