@@ -1,7 +1,7 @@
 [![License](https://badgen.net/npm/license/qbem)](https://www.npmjs.com/package/qbem)
 [![NPM version](https://badgen.net/npm/v/qbem)](https://www.npmjs.com/package/qbem)
 [![types](https://badgen.net/npm/types/qbem)](https://www.npmjs.com/package/qbem)
-[![publish size](https://badgen.net/packagephobia/publish/qbem)](https://www.npmjs.com/package/qbem)
+[![minified size](https://badgen.net/bundlephobia/min/qbem)](https://www.npmjs.com/package/qbem)
 
 # qbem
 A quick [BEM][BEM] helper! More BEM. Less Typing.
