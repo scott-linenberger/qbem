@@ -1,5 +1,6 @@
-[![License](https://badgen.net/npm/license/qbem)](https://www.npmjs.com/package/qbem)
-[![NPM version](https://badgen.net/npm/v/qbem)](https://www.npmjs.com/package/qbem)
+[![issues](https://badgen.net/github/open-issues/scott-linenberger/qbem)](https://github.com/scott-linenberger/qbem/issues)
+[![NPM version](https://badgen.net/npm/v/qbem)](https://github.com/scott-linenberger/qbem/tree/0.7.0)
+[![License](https://badgen.net/npm/license/qbem)](https://github.com/scott-linenberger/qbem/blob/0.7.0/LICENSE)
 [![types](https://badgen.net/npm/types/qbem)](https://www.npmjs.com/package/qbem)
 [![minified size](https://badgen.net/bundlephobia/min/qbem)](https://www.npmjs.com/package/qbem)
 
