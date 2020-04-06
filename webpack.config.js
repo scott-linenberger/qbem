@@ -10,6 +10,7 @@ const PATH = {
 const config = {
   entry: PATH.entryPoint,
   devtool: "source-map",
+  mode: "production",
   output: {
     filename: `index.js`,
     path: PATH.dist,
@@ -23,6 +24,7 @@ const config = {
       { test: /\.tsx?$/, loader: "ts-loader" }
     ]
   }
+
 };
 
 module.exports = config;

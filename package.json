@@ -13,24 +13,16 @@
 		"type": "git",
 		"url": "git+https://github.com/scott-linenberger/qbem.git"
 	},
-	"keywords": [
-		"bem",
-		"css",
-		"helper",
-		"util",
-		"style",
-		"classnames"
-	],
+	"keywords": [ "bem", "css", "helper", "util", "style", "classnames" ],
 	"author": "Scott Linenberger",
 	"license": "GPL-3.0-or-later",
 	"bugs": {
 		"url": "https://github.com/scott-linenberger/qbem/issues"
 	},
 	"homepage": "https://github.com/scott-linenberger/qbem#readme",
-	"dependencies": {
-		"typescript": "^3.8.3"
-	},
+	"dependencies": {},
 	"devDependencies": {
+		"typescript": "^3.8.3",
 		"@babel/core": "^7.9.0",
 		"@babel/preset-env": "^7.9.0",
 		"@babel/preset-typescript": "^7.9.0",
