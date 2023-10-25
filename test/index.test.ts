@@ -1,34 +1,34 @@
-import QBem from '../src';
+import { QBem } from '../src'
 
 describe('QBem', () => {
   it('should be defined', () => {
-    expect(QBem).toBeDefined();
-  });
+    expect(QBem).toBeDefined()
+  })
 
   it('should throw if block name is undefined', () => {
     try {
       // @ts-ignore
-      const qb = new QBem();
+      const qb = new QBem()
       /* fail the test */
-      expect(true).toBe(false);
+      expect(true).toBe(false)
     } catch (e) {
-      expect(true).toBe(true);
+      expect(true).toBe(true)
     }
-  });
+  })
 
   it('should have a "block" method', () => {
-    const nameBlock = 'block';
-    const qb = new QBem(nameBlock);
+    const nameBlock = 'block'
+    const qb = new QBem(nameBlock)
 
-    expect(qb['block']).toBeDefined();
-  });
+    expect(qb['block']).toBeDefined()
+  })
 
   it('should have an "element" method', () => {
-    const nameBlock = 'block';
-    const qb = new QBem(nameBlock);
+    const nameBlock = 'block'
+    const qb = new QBem(nameBlock)
 
-    expect(qb['element']).toBeDefined();
-  });
+    expect(qb['element']).toBeDefined()
+  })
 
   it('should format sample HTML correctly', () => {
     const result = `
@@ -38,75 +38,71 @@ describe('QBem', () => {
       class="form__submit form__submit--disabled"
       type="submit" />
     </form>
-    `;
+    `
 
-    const qb = new QBem('form');
+    const qb = new QBem('form')
     const template = `
     <form class="${qb.block(['theme-xmas', 'simple'])}">
       <input class="${qb.element('input')}" type="text" />
       <input
-      class="${qb.element('submit', [{ 'disabled': true }])}"
+      class="${qb.element('submit', [{ disabled: true }])}"
       type="submit" />
     </form>
-    `;
+    `
 
-    console.log(template);
-    expect(template).toEqual(result);
+    console.log(template)
+    expect(template).toEqual(result)
   })
 
   describe('QBem.blockWithModifier', () => {
     it('should return a BEM style string using the block name associated with this instance of QBem', () => {
-      const qb = new QBem('block');
+      const qb = new QBem('block')
 
-      expect(qb.blockWithModifier('active'))
-        .toEqual('block--active');
-    });
-  });
+      expect(qb.blockWithModifier('active')).toEqual('block--active')
+    })
+  })
 
   describe('QBem.elementWithModifier', () => {
     it('should return a BEM style string using the block name associated with this instance of QBem', () => {
-      const qb = new QBem('block');
+      const qb = new QBem('block')
 
-      expect(qb.elementWithModifier('element', 'active'))
-        .toEqual('block__element--active');
-    });
-  });
+      expect(qb.elementWithModifier('element', 'active')).toEqual(
+        'block__element--active'
+      )
+    })
+  })
 
   describe('QBem.block', () => {
-
     it('should return the block name if modifiers undefined', () => {
-      const nameBlock = 'block';
-      const qb = new QBem(nameBlock);
+      const nameBlock = 'block'
+      const qb = new QBem(nameBlock)
 
-      const classname = qb.block();
+      const classname = qb.block()
 
-      expect(classname)
-        .toEqual(nameBlock);
-    });
+      expect(classname).toEqual(nameBlock)
+    })
 
     it('should return the block name and modifiers (in order) if modifiers supplied', () => {
-      const nameBlock = 'block';
-      const qb = new QBem(nameBlock);
+      const nameBlock = 'block'
+      const qb = new QBem(nameBlock)
 
-      const modifierActive = 'active';
-      const modifierDarkMode = 'dark-mode';
+      const modifierActive = 'active'
+      const modifierDarkMode = 'dark-mode'
 
-      const classname = qb.block([
-        modifierActive,
-        modifierDarkMode,
-      ]);
+      const classname = qb.block([modifierActive, modifierDarkMode])
 
-      expect(classname)
-        .toEqual(`${nameBlock} ${nameBlock}--${modifierActive} ${nameBlock}--${modifierDarkMode}`);
-    });
+      expect(classname).toEqual(
+        `${nameBlock} ${nameBlock}--${modifierActive} ${nameBlock}--${modifierDarkMode}`
+      )
+    })
 
     it('should add correct conditional modifiers (in order) if modifiers supplied', () => {
-      const nameBlock = 'block';
-      const qb = new QBem(nameBlock);
+      const nameBlock = 'block'
+      const qb = new QBem(nameBlock)
 
-      const modifierActive = 'active';
-      const modifierDarkMode = 'dark-mode';
-      const modifierUltraAwesome = 'ultra-awesome';
+      const modifierActive = 'active'
+      const modifierDarkMode = 'dark-mode'
+      const modifierUltraAwesome = 'ultra-awesome'
 
       const classname = qb.block([
         modifierActive,
@@ -115,81 +111,70 @@ describe('QBem', () => {
         },
         {
           [modifierUltraAwesome]: true,
-          'disabled': false,
+          disabled: false,
         },
-      ]);
+      ])
 
-      expect(classname)
-        .toEqual(`${nameBlock} ${nameBlock}--${modifierActive} ${nameBlock}--${modifierDarkMode} ${nameBlock}--${modifierUltraAwesome}`);
-    });
-
-  });
+      expect(classname).toEqual(
+        `${nameBlock} ${nameBlock}--${modifierActive} ${nameBlock}--${modifierDarkMode} ${nameBlock}--${modifierUltraAwesome}`
+      )
+    })
+  })
 
   describe('QBem.element', () => {
-    it(
-      'should return the element with block name attached in BEM format if modifiers undefined',
-      () => {
-        const nameBlock = 'block';
-        const nameElement = 'element';
-        const qb = new QBem(nameBlock);
+    it('should return the element with block name attached in BEM format if modifiers undefined', () => {
+      const nameBlock = 'block'
+      const nameElement = 'element'
+      const qb = new QBem(nameBlock)
 
-        const classname = qb.element(nameElement);
+      const classname = qb.element(nameElement)
 
-        expect(classname)
-          .toEqual(`${nameBlock}__${nameElement}`);
-      });
+      expect(classname).toEqual(`${nameBlock}__${nameElement}`)
+    })
 
-    it(
-      'should return the element with block name attached in BEM format with modifiers (in order) if defined',
-      () => {
-        const nameBlock = 'block';
-        const nameElement = 'element';
-        const qb = new QBem(nameBlock);
+    it('should return the element with block name attached in BEM format with modifiers (in order) if defined', () => {
+      const nameBlock = 'block'
+      const nameElement = 'element'
+      const qb = new QBem(nameBlock)
 
-        const modifierActive = 'active';
-        const modifierDarkMode = 'dark-mode';
+      const modifierActive = 'active'
+      const modifierDarkMode = 'dark-mode'
 
-        const classname = qb.element(
-          nameElement,
-          [
-            modifierActive,
-            modifierDarkMode
-          ]
-        );
+      const classname = qb.element(nameElement, [
+        modifierActive,
+        modifierDarkMode,
+      ])
 
-        const element = `${nameBlock}__${nameElement}`;
+      const element = `${nameBlock}__${nameElement}`
 
-        expect(classname)
-          .toEqual(`${element} ${element}--${modifierActive} ${element}--${modifierDarkMode}`);
-      });
+      expect(classname).toEqual(
+        `${element} ${element}--${modifierActive} ${element}--${modifierDarkMode}`
+      )
+    })
 
-    it(
-      'should return the element with block name attached in BEM format with conditional modifiers (in order) if defined',
-      () => {
-        const nameBlock = 'block';
-        const nameElement = 'element';
-        const qb = new QBem(nameBlock);
+    it('should return the element with block name attached in BEM format with conditional modifiers (in order) if defined', () => {
+      const nameBlock = 'block'
+      const nameElement = 'element'
+      const qb = new QBem(nameBlock)
 
-        const modifierActive = 'active';
-        const modifierDarkMode = 'dark-mode';
-        const modifierUltraAwesome = 'ultra-awesome';
+      const modifierActive = 'active'
+      const modifierDarkMode = 'dark-mode'
+      const modifierUltraAwesome = 'ultra-awesome'
 
-        const classname = qb.element(
-          nameElement,
-          [
-            {
-              [modifierActive]: true,
-              [modifierUltraAwesome]: true,
-              'other-modifier': undefined,
-            },
-            modifierDarkMode,
-          ]
-        );
+      const classname = qb.element(nameElement, [
+        {
+          [modifierActive]: true,
+          [modifierUltraAwesome]: true,
+          'other-modifier': undefined,
+        },
+        modifierDarkMode,
+      ])
 
-        const element = `${nameBlock}__${nameElement}`;
+      const element = `${nameBlock}__${nameElement}`
 
-        expect(classname)
-          .toEqual(`${element} ${element}--${modifierActive} ${element}--${modifierUltraAwesome} ${element}--${modifierDarkMode}`);
-      });
-  });
-});
+      expect(classname).toEqual(
+        `${element} ${element}--${modifierActive} ${element}--${modifierUltraAwesome} ${element}--${modifierDarkMode}`
+      )
+    })
+  })
+})
