@@ -49,8 +49,6 @@ describe('QBem', () => {
       type="submit" />
     </form>
     `
-
-    console.log(template)
     expect(template).toEqual(result)
   })
 
@@ -162,6 +160,60 @@ describe('QBem', () => {
       const modifierUltraAwesome = 'ultra-awesome'
 
       const classname = qb.element(nameElement, [
+        {
+          [modifierActive]: true,
+          [modifierUltraAwesome]: true,
+          'other-modifier': undefined,
+        },
+        modifierDarkMode,
+      ])
+
+      const element = `${nameBlock}__${nameElement}`
+
+      expect(classname).toEqual(
+        `${element} ${element}--${modifierActive} ${element}--${modifierUltraAwesome} ${element}--${modifierDarkMode}`
+      )
+    })
+  })
+
+  describe('QBem.elem', () => {
+    it('should return the element with block name attached in BEM format if modifiers undefined', () => {
+      const nameBlock = 'block'
+      const nameElement = 'element'
+      const qb = new QBem(nameBlock)
+
+      const classname = qb.elem(nameElement)
+
+      expect(classname).toEqual(`${nameBlock}__${nameElement}`)
+    })
+
+    it('should return the element with block name attached in BEM format with modifiers (in order) if defined', () => {
+      const nameBlock = 'block'
+      const nameElement = 'element'
+      const qb = new QBem(nameBlock)
+
+      const modifierActive = 'active'
+      const modifierDarkMode = 'dark-mode'
+
+      const classname = qb.elem(nameElement, [modifierActive, modifierDarkMode])
+
+      const element = `${nameBlock}__${nameElement}`
+
+      expect(classname).toEqual(
+        `${element} ${element}--${modifierActive} ${element}--${modifierDarkMode}`
+      )
+    })
+
+    it('should return the element with block name attached in BEM format with conditional modifiers (in order) if defined', () => {
+      const nameBlock = 'block'
+      const nameElement = 'element'
+      const qb = new QBem(nameBlock)
+
+      const modifierActive = 'active'
+      const modifierDarkMode = 'dark-mode'
+      const modifierUltraAwesome = 'ultra-awesome'
+
+      const classname = qb.elem(nameElement, [
         {
           [modifierActive]: true,
           [modifierUltraAwesome]: true,
