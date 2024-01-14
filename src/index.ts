@@ -4,7 +4,8 @@ export type QBemConditionalModifier = {
 
 export class QBem {
   /* instance variables */
-  private _block: string
+  // block
+  private _b: string
 
   /**
    * Creates an instance of `QBem` for a block.
@@ -12,12 +13,10 @@ export class QBem {
    */
   constructor(block: string) {
     if (!block) {
-      throw new Error(
-        'QBem: could not construct instance: block name undefined! '
-      )
+      throw new Error('qbem: block name undefined')
     }
 
-    this._block = block
+    this._b = block
   }
 
   /**
@@ -58,33 +57,24 @@ export class QBem {
   public block(
     modifiers: (string | QBemConditionalModifier)[] | undefined = []
   ): string {
-    let classnames = `${this._block} `
-
-    if (modifiers.length === 0) {
-      return classnames.trim()
-    }
+    let classnames = `${this._b} `
 
     modifiers.forEach((currentModifier: string | QBemConditionalModifier) => {
       const modifierType = typeof currentModifier
 
-      switch (modifierType) {
-        case 'string':
-          classnames = classnames.concat(
-            `${this.blockWithModifier(currentModifier as string)} `
-          )
-          break
+      if (modifierType === 'string') {
+        classnames = `${classnames}${this.blockWithModifier(
+          currentModifier as string
+        )} `
+      }
 
-        case 'object':
-          /* iterate the object's properties */
-          Object.entries(currentModifier).forEach(([key, value]) => {
-            if (value === true) {
-              classnames = classnames.concat(`${this.blockWithModifier(key)} `)
-            }
-          })
-          break
-
-        default:
-          break
+      if (modifierType === 'object') {
+        /* iterate the object's properties */
+        Object.entries(currentModifier).forEach(([key, value]) => {
+          if (value === true) {
+            classnames = `${classnames}${this.blockWithModifier(key)} `
+          }
+        })
       }
     })
 
@@ -104,7 +94,7 @@ export class QBem {
    * @param modifier - BEM modifier name
    */
   public blockWithModifier(modifier: string): string {
-    return `${this._block}--${modifier}`
+    return `${this._b}--${modifier}`
   }
 
   /**
@@ -158,35 +148,28 @@ export class QBem {
     element: string,
     modifiers: (string | QBemConditionalModifier)[] | undefined = []
   ): string {
-    let classnames = `${this._block}__${element} `
-
-    if (modifiers.length === 0) {
-      return classnames.trim()
-    }
+    let classnames = `${this._b}__${element} `
 
     modifiers.forEach((currentModifier) => {
       const modifierType = typeof currentModifier
 
-      switch (modifierType) {
-        case 'string':
-          classnames = classnames.concat(
-            `${this.elementWithModifier(element, currentModifier as string)} `
-          )
-          break
+      if (modifierType === 'string') {
+        classnames = `${classnames}${this.elementWithModifier(
+          element,
+          currentModifier as string
+        )} `
+      }
 
-        case 'object':
-          /* iterate the object's properties */
-          Object.entries(currentModifier).forEach(([key, value]) => {
-            if (value === true) {
-              classnames = classnames.concat(
-                `${this.elementWithModifier(element, key)} `
-              )
-            }
-          })
-          break
-
-        default:
-          break
+      if (modifierType === 'object') {
+        /* iterate the object's properties */
+        Object.entries(currentModifier).forEach(([key, value]) => {
+          if (value === true) {
+            classnames = `${classnames}${this.elementWithModifier(
+              element,
+              key
+            )} `
+          }
+        })
       }
     })
 
@@ -220,7 +203,7 @@ export class QBem {
    * @param modifier - BEM modifier name
    */
   public elementWithModifier(element: string, modifier: string): string {
-    return `${this._block}__${element}--${modifier}`
+    return `${this._b}__${element}--${modifier}`
   }
 }
 
