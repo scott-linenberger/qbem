@@ -1,11 +1,16 @@
 {
   "name": "qbem",
-  "version": "1.0.3",
+  "version": "2.0.0--alpha",
   "description": "A Quick BEM helper!",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "author": {
+    "name": "Scott Linenberger",
+    "url": "https://github.com/scott-linenberger",
+    "githubUsername": "scott-linenberger"
+  },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage --collectCoverageFrom='./src/**' --verbose",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "build": "rm -r -f dist && webpack"
   },
@@ -21,7 +26,7 @@
     "style",
     "classnames"
   ],
-  "author": "Scott Linenberger",
+  "contributors": [],
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/scott-linenberger/qbem/issues"
