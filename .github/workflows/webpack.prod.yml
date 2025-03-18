@@ -2,7 +2,7 @@ name: NodeJS with Webpack
 
 on:
   push:
-    tags: 
+    tags:
       - cicd*
 
 jobs:
@@ -14,20 +14,22 @@ jobs:
         node-version: [18.x, 20.x, 22.x]
 
     steps:
-    - run: echo "$$$$$$$ [ P R O D U C T I O N] $$$$$$$"
-    
-    - name: Checkout latest
-      uses: actions/checkout@v4
+      - run: echo "$$$$$$$ [ P R O D U C T I O N] $$$$$$$"
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Checkout latest
+        uses: actions/checkout@v4
 
-    - name: Execute tests
-      run: npm run test
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Build Webpack
-      run: |
-        npm install
-        npm run build
+      - name: Execute tests
+        run: |
+          npm install
+          npm run test
+
+      - name: Build Webpack
+        run: |
+          npm install
+          npm run build
