@@ -6,7 +6,7 @@ on:
       - cicd*
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -14,8 +14,6 @@ jobs:
         node-version: [18.x, 20.x, 22.x]
 
     steps:
-      - run: echo "$$$$$$$ [ P R O D U C T I O N] $$$$$$$"
-
       - name: Checkout latest
         uses: actions/checkout@v4
 
@@ -24,16 +22,33 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Execute tests
+      - name: Execute Jest Unit Tests
         run: |
           npm install
           npm run test
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Build Webpack
         run: |
           npm install
           npm run build
 
+  deploy-coverage:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy Badges -> SFTP to Webspace
         uses: Dylan700/sftp-upload-action@latest
         with:
@@ -45,8 +60,9 @@ jobs:
             ./coverage/ => ${{ vars.PATH_WEBSPACE_BADGES }}
           ignore: |
             *.git
+
   publish-npm:
-    needs: build
+    needs: deploy-coverage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
