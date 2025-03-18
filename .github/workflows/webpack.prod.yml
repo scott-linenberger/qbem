@@ -33,3 +33,15 @@ jobs:
         run: |
           npm install
           npm run build
+
+      - name: Deploy Badges -> SFTP to Webspace
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{ secrets.SFTP_SERVER }}
+          port: 22
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}
+          uploads: |
+            ./coverage/*.svg => ${{ vars.PATH_WEBSPACE_BADGES }}
+          ignore: |
+            *.git
