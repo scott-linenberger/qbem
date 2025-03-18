@@ -123,4 +123,22 @@ describe('QBem.element', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('should return the element classname with multiple, mixed objects and string classes when there are modifiers and classes', () => {
+    const expected = 'block__element blueprintjs core bootstrap scroller'
+    const result = bem.element(
+      element,
+      [{ isOn: false }],
+      {
+        blueprintjs: true,
+      },
+      'core',
+      {
+        bootstrap: true,
+      },
+      'scroller'
+    )
+
+    expect(result).toEqual(expected)
+  })
 })

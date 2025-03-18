@@ -7,13 +7,26 @@ type QBemConditionalKeys =
 type ClassesInput = QBemConditionalKeys[]
 type BlockModifiers = QBemConditionalKeys[] | undefined | null
 
+const myArr = []
+
+const QBEM_ERROR_MODIFIER_TYPE_VIOLATION =
+  'QBem: modifier type violation => modifiers must be strings or objects!'
+
+function throModifierTypeViolationError() {
+  throw new Error(QBEM_ERROR_MODIFIER_TYPE_VIOLATION)
+}
+
 export class QBem {
   /* instance variables */
   // block
   private _b: string
 
   /**
-   * Creates an instance of `QBem` for a block.
+   * Returns an instance of `QBem`.
+   *
+   * ```ts
+   * const bem = new Qbem('<block-name>') // exmple
+   * ```
    * @param block - BEM block name
    */
   constructor(block: string) {
@@ -24,6 +37,13 @@ export class QBem {
     this._b = block
   }
 
+  /**
+   * Returns the 'block' portion of BEM
+   *
+   * @param modifiers - BEM modifiers for the block
+   * @param classes - non-BEM classnames for the block
+   * @returns - calculated BEM block classnames
+   */
   public block(modifiers?: BlockModifiers, ...classes: ClassesInput): string {
     /* if no modifiers */
     if (!modifiers) {
@@ -34,9 +54,6 @@ export class QBem {
       }
     }
 
-    /* prepare for adding classes and modifiers */
-    modifiers = modifiers ?? []
-
     const outputModifiers = QBem.modifiers(this._b, ...modifiers)
     const outputClasses = QBem.classes(...classes)
 
@@ -45,6 +62,14 @@ export class QBem {
     }`.trim()
   }
 
+  /**
+   * Returns a calculated BEM element using the instance's block and the
+   * supplied arguments.
+   * @param element - BEM element name
+   * @param modifiers - BEM modifiers for the element
+   * @param classes - non-BEM classes for the element
+   * @returns - calculated BEM element classnames
+   */
   public element(
     element: string,
     modifiers?: BlockModifiers,
@@ -60,21 +85,23 @@ export class QBem {
       }
     }
 
-    /* prepare for adding classes and modifiers */
-    modifiers = modifiers ?? []
     const outputModifiers = QBem.modifiers(base, ...modifiers)
     const outputClasses = QBem.classes(...classes)
 
     return `${base} ${outputModifiers}${
-      outputClasses.length ? ` ${outputClasses}` : ''
+      outputClasses.length ? `${outputClasses}` : ''
     }`.trim()
   }
 
   /**
    * Convenience method for `element`
-   * @param element
-   * @param modifiers
-   * @returns
+   *
+   * Returns a calculated BEM element using the instance's block and the
+   * supplied arguments.
+   * @param element - BEM element name
+   * @param modifiers - BEM modifiers for the element
+   * @param classes - non-BEM classes for the element
+   * @returns - calculated BEM element classnames
    */
   public elem(
     element: string,
@@ -110,12 +137,21 @@ export class QBem {
               : `${base}--${key}`
           }
         })
+      } else {
+        throModifierTypeViolationError()
       }
     }
 
     return modified.trim()
   }
 
+  /**
+   * ```typescript
+   * QBem.classes('a', 'b', 'c', { d: true, e: false }) // -> 'a b c d'
+   * ```
+   * @param classes - non-BEM classes to be concatenated
+   * @returns - concatenated classnames
+   */
   public static classes(...classes: ClassesInput) {
     let classnames = ''
 
@@ -136,6 +172,8 @@ export class QBem {
             classnames = `${classnames} ${key}`
           }
         })
+      } else {
+        throModifierTypeViolationError()
       }
     }
 

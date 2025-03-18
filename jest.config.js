@@ -4,5 +4,5 @@
 module.exports = {
   clearMocks: true,
   coverageDirectory: 'coverage',
-  coverageReporters: ['json', 'text', 'lcov', 'clover'],
+  coverageReporters: ['json-summary', 'text', 'lcov', 'clover'],
 }

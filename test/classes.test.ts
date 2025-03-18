@@ -14,6 +14,15 @@ describe('QBem.element', () => {
     expect(QBem.classes(expected)).toBe(expected)
   })
 
+  it('should throw a useful error if modifiers violate type definitions', () => {
+    expect(() => {
+      // @ts-ignore -- ignoring type defs to test all branches
+      QBem.classes('class1', 77)
+    }).toThrow(
+      'QBem: modifier type violation => modifiers must be strings or objects!'
+    )
+  })
+
   it('should return a concatenated string from mixed input', () => {
     const expected = 'the cow jumped over the moon'
 
