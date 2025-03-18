@@ -42,6 +42,6 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
           uploads: |
-            ./coverage/*.svg => ${{ vars.PATH_WEBSPACE_BADGES }}
+            ./coverage/ => ${{ vars.PATH_WEBSPACE_BADGES }}
           ignore: |
             *.git
