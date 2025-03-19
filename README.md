@@ -1,12 +1,12 @@
 [![NPM version](https://img.shields.io/npm/v/qbem)](https://github.com/scott-linenberger/qbem/)
 [![minified size](https://badgen.net/bundlephobia/min/qbem)](https://www.npmjs.com/package/qbem)
 [![types](https://badgen.net/npm/types/qbem)](https://www.npmjs.com/package/qbem)
-[![License](https://badgen.net/npm/license/qbem)](https://github.com/scott-linenberger/qbem/blob/2.0.1/LICENSE)
-[![coverage lines](https://qbem.scottlinenberger.com/coverage/badge-lines.svg)](https://qbem.scottlinenberger.com/coverage/badge-lines.svg)
-[![coverage functions](https://qbem.scottlinenberger.com/coverage/badge-functions.svg)](https://qbem.scottlinenberger.com/coverage/badge-functions.svg)
-[![coverage branches](https://qbem.scottlinenberger.com/coverage/badge-branches.svg)](https://qbem.scottlinenberger.com/coverage/badge-branches.svg)
-[![coverage statements](https://qbem.scottlinenberger.com/coverage/badge-statements.svg)](https://qbem.scottlinenberger.com/coverage/badge-statements.svg)
-[![issues](https://badgen.net/github/open-issues/scott-linenberger/qbem)](https://github.com/scott-linenberger/qbem/issues)
+[![coverage](https://qbem.scottlinenberger.com/coverage/badge-lines.svg)](https://qbem.scottlinenberger.com/coverage/lcov-report/index.ts.html)
+[![coverage](https://qbem.scottlinenberger.com/coverage/badge-branches.svg)](https://qbem.scottlinenberger.com/coverage/lcov-report/index.ts.html)
+[![coverage](https://qbem.scottlinenberger.com/coverage/badge-statements.svg)](https://qbem.scottlinenberger.com/coverage/lcov-report/index.ts.html)
+[![coverage](https://qbem.scottlinenberger.com/coverage/badge-functions.svg)](https://qbem.scottlinenberger.com/coverage/lcov-report/index.ts.html)
+[![License](https://badgen.net/npm/license/qbem)](https://github.com/scott-linenberger/qbem/blob/main/LICENSE)
+[![issues](https://badgen.net/github/open-issues/scott-linenberger/qbem?d=1)](https://github.com/scott-linenberger/qbem/issues)
 
 # Qbem
 
