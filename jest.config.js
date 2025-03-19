@@ -5,4 +5,12 @@ module.exports = {
   clearMocks: true,
   coverageDirectory: 'coverage',
   coverageReporters: ['json-summary', 'text', 'lcov', 'clover'],
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
 }

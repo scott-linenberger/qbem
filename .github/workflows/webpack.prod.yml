@@ -1,4 +1,4 @@
-name: Build QBem for Production
+name: QBem Production Build & Deployment
 
 on:
   push:
@@ -15,7 +15,9 @@ jobs:
 
     steps:
       - name: Audit Security
-        run: npm audit
+        run: |
+          npm i --package-lock-only
+          npm audit
 
   test:
     needs: audit
