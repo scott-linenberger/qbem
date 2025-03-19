@@ -2,10 +2,10 @@
 [![NPM version](https://badgen.net/npm/v/qbem)](https://github.com/scott-linenberger/qbem/tree/0.7.3)
 [![types](https://badgen.net/npm/types/qbem)](https://www.npmjs.com/package/qbem)
 [![License](https://badgen.net/npm/license/qbem)](https://github.com/scott-linenberger/qbem/blob/0.7.3/LICENSE)
-[![coverage lines](https://qbem.scottlinenberger.com/badge-lines.svg)](https://qbem.scottlinenberger.com/badge-lines.svg)
-[![coverage functions](https://qbem.scottlinenberger.com/coverage/badge-functions.svg)](https://qbem.scottlinenberger.com/badge-functions.svg)
-[![coverage branches](https://qbem.scottlinenberger.com/badge-branches.svg)](https://qbem.scottlinenberger.com/badge-branches.svg)
-[![coverage statements](https://qbem.scottlinenberger.com/badge-statements.svg)](https://qbem.scottlinenberger.com/badge-statements.svg)
+[![coverage lines](https://qbem.scottlinenberger.com/coverage/badge-lines.svg)](https://qbem.scottlinenberger.com/coverage/badge-lines.svg)
+[![coverage functions](https://qbem.scottlinenberger.com/coverage/badge-functions.svg)](https://qbem.scottlinenberger.com/coverage/badge-functions.svg)
+[![coverage branches](https://qbem.scottlinenberger.com/coverage/badge-branches.svg)](https://qbem.scottlinenberger.com/coverage/badge-branches.svg)
+[![coverage statements](https://qbem.scottlinenberger.com/coverage/badge-statements.svg)](https://qbem.scottlinenberger.com/coverage/badge-statements.svg)
 [![issues](https://badgen.net/github/open-issues/scott-linenberger/qbem)](https://github.com/scott-linenberger/qbem/issues)
 
 # Qbem
