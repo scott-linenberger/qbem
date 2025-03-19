@@ -1,5 +1,5 @@
+[![NPM version](https://img.shields.io/npm/v/qbem)](https://github.com/scott-linenberger/qbem/)
 [![minified size](https://badgen.net/bundlephobia/min/qbem)](https://www.npmjs.com/package/qbem)
-[![NPM version](https://badgen.net/npm/v/qbem)](https://github.com/scott-linenberger/qbem/tree/2.0.1)
 [![types](https://badgen.net/npm/types/qbem)](https://www.npmjs.com/package/qbem)
 [![License](https://badgen.net/npm/license/qbem)](https://github.com/scott-linenberger/qbem/blob/2.0.1/LICENSE)
 [![coverage lines](https://qbem.scottlinenberger.com/coverage/badge-lines.svg)](https://qbem.scottlinenberger.com/coverage/badge-lines.svg)
@@ -14,7 +14,7 @@ A quick [BEM][bem] helper! Flexible, Readable, BEM (Block, Element, Modifier).
 
 ```text
 -------------------------------------------------------------------
-|                   QUICK! BEM v2.0.0--alpha                      |
+|                   QUICK! BEM v2.0.1                             |
 -------------------------------------------------------------------
 +<    ,ad8888ba,    88888888ba                                   >+
 +<   d8"'    `"8b   88      "8b                                  >+
