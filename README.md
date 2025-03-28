@@ -1,5 +1,5 @@
 [![NPM version](https://img.shields.io/npm/v/qbem)](https://github.com/scott-linenberger/qbem/)
-[![minified size](https://badgen.net/bundlephobia/min/qbem)](https://www.npmjs.com/package/qbem)
+[![types](https://badgen.net/npm/types/qbem)](https://www.npmjs.com/package/qbem)
 [![coverage](https://qbem.scottlinenberger.com/coverage/badge-lines.svg)](https://qbem.scottlinenberger.com/coverage/lcov-report/index.ts.html)
 [![coverage](https://qbem.scottlinenberger.com/coverage/badge-branches.svg)](https://qbem.scottlinenberger.com/coverage/lcov-report/index.ts.html)
 [![coverage](https://qbem.scottlinenberger.com/coverage/badge-statements.svg)](https://qbem.scottlinenberger.com/coverage/lcov-report/index.ts.html)
