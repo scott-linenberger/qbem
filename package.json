@@ -14,8 +14,7 @@
     "test": "jest",
     "coverage": "jest --coverage --collectCoverageFrom='./src/**' --verbose && jest-coverage-badges",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "build": "rm -r -f dist && webpack",
-    "prepare": "npm run build"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
