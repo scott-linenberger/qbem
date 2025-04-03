@@ -1,6 +1,6 @@
 {
   "name": "qbem",
-  "version": "2.2.0-e",
+  "version": "2.2.0-f",
   "description": "A Quick BEM helper!",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,8 +14,7 @@
     "test": "jest",
     "coverage": "jest --coverage --collectCoverageFrom='./src/**' --verbose && jest-coverage-badges",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "build": "webpack",
-    "prepare": "npm run build"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
