@@ -2288,6 +2288,11 @@
     "slash" "^3.0.0"
     "strip-json-comments" "^3.1.1"
 
+"jest-coverage-badges@^1.0.0":
+  "integrity" "sha512-2PzLRTBMYxaRtDy3gAfVhzZcP5MGb90vzS/6v23tR67J7ejh2D6rGlGvl3IF0LJxqKKJlWSxkTNTzgXMsDb9ug=="
+  "resolved" "https://registry.npmjs.org/jest-coverage-badges/-/jest-coverage-badges-1.0.0.tgz"
+  "version" "1.0.0"
+
 "jest-diff@^29.7.0":
   "integrity" "sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw=="
   "resolved" "https://registry.npmjs.org/jest-diff/-/jest-diff-29.7.0.tgz"
