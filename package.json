@@ -1,6 +1,6 @@
 {
   "name": "qbem",
-  "version": "3.0.0-beta-a",
+  "version": "3.0.0",
   "description": "A Quick BEM helper!",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

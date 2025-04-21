@@ -13,7 +13,7 @@ A quick [BEM][bem] helper! Flexible, Readable, BEM (Block, Element, Modifier).
 
 ```text
 -------------------------------------------------------------------
-|                   QUICK! BEM v3.0.0-alpha                       |
+|                   QUICK! BEM v3.0.0                             |
 -------------------------------------------------------------------
 +<    ,ad8888ba,    88888888ba                                   >+
 +<   d8"'    `"8b   88      "8b                                  >+
