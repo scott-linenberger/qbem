@@ -1,4 +1,4 @@
-import { QBem } from '../src'
+import { QBem, classes } from '../src'
 
 describe('QBem.elem', () => {
   const block = 'block'

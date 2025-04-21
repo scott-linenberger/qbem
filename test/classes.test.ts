@@ -1,4 +1,33 @@
-import { QBem } from '../src'
+import { QBem, classes } from '../src'
+
+describe('classes', () => {
+  it('should exist as an import', () => {
+    expect(classes).not.toBe(undefined)
+  })
+
+  it('should return an empty string when no inputs provides', () => {
+    const result = classes()
+    expect(result).toBe('')
+  })
+
+  it('should concat simple string classes together in CSS form', () => {
+    const result = classes('a', 'b', 'c')
+    const expectedResult = 'a b c'
+    expect(result).toBe(expectedResult)
+  })
+
+  it('should correctly concat conditional objects', () => {
+    const result = classes('a', { b: false }, 'c')
+    const expectedResult = 'a c'
+    expect(result).toBe(expectedResult)
+  })
+
+  it('should correctly concat complex conditional objects', () => {
+    const result = classes('a', { b: false, c: true, ['d-e-f']: true })
+    const expectedResult = 'a c d-e-f'
+    expect(result).toBe(expectedResult)
+  })
+})
 
 describe('QBem.element', () => {
   it('should return an empty string if no input', () => {

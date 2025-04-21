@@ -179,20 +179,8 @@ export class QBem {
 
     return classnames.trim()
   }
-
-  /**
-   * @deprecated
-   */
-  public blockWithModifier(modifier: string): string {
-    return `${this._b}--${modifier}`
-  }
-
-  /**
-   * @deprecated
-   */
-  public elementWithModifier(element: string, modifier: string): string {
-    return `${this._b}__${element}--${modifier}`
-  }
 }
 
 export default QBem
+
+export const classes = QBem.classes

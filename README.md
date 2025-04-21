@@ -13,7 +13,7 @@ A quick [BEM][bem] helper! Flexible, Readable, BEM (Block, Element, Modifier).
 
 ```text
 -------------------------------------------------------------------
-|                   QUICK! BEM v2.0.1                             |
+|                   QUICK! BEM v3.0.0-alpha                       |
 -------------------------------------------------------------------
 +<    ,ad8888ba,    88888888ba                                   >+
 +<   d8"'    `"8b   88      "8b                                  >+
@@ -29,6 +29,12 @@ A quick [BEM][bem] helper! Flexible, Readable, BEM (Block, Element, Modifier).
 ```
 
 ## Quick Start
+
+## CHANGE LOG
+
+| Version          | Description                                                                                                    |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- |
+| v3.0.0-alpha-xxx | Remove deprecated methods `blockWithModifier` and `elementWithModifier`. Add `classes` export + documentation. |
 
 ### Installation
 
@@ -346,4 +352,29 @@ bem.elem(
 ) // -> 'form__section-1 form__section-1--theme-dark form__section-1--required third-party-style third-party-dark-mode'
 ```
 
+## Classes
+
+`classes` is available as both a static method on the QBem class `QBem.classes` and
+as a standalone import from QBem for your convenience.
+
+### Classes with string classnames
+
+```ts
+import { classes } from 'qbem'
+
+const output = classes('a', 'b', 'c') // "a b c"
+```
+
+### Classes with conditional classes
+
+````ts
+import { classes } from 'qbem';
+
+const output = classes('a', {
+  b: false,
+  ['dark-mode']: true,
+}, 'c') // "a dark-mode c"
+```
+
 [bem]: http://getbem.com/naming/
+````
