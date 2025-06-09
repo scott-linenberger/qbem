@@ -1,6 +1,6 @@
 {
   "name": "qbem",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A Quick BEM helper!",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",

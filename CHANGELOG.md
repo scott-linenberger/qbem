@@ -2,6 +2,12 @@
 
 ## [4.0.0] - 2025-06-09
 
+### Changed
+
+- bumped version to update stale README
+
+## [4.0.0] - 2025-06-09
+
 ### Added
 
 - switch compilation from webpack & ts to `tsup`
