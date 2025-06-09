@@ -20,9 +20,22 @@ describe('QBem.modifiers', () => {
     expect(() => {
       // @ts-ignore -- ignoring type defs to test all branches
       QBem.modifiers('base', 77)
-    }).toThrow(
-      'QBem: modifier type violation => modifiers must be strings or objects!'
-    )
+    }).toThrow('QBem: modifier type violation => modifiers must be strings or objects!')
+  })
+
+  it('should throw a useful error if modifiers violate type definitions because of undefined', () => {
+    expect(() => {
+      // @ts-ignore -- ignoring type defs to test all branches
+      QBem.modifiers('base', undefined)
+    }).toThrow('QBem: modifier type violation => modifiers must be strings or objects!')
+  })
+
+  it('should return base string if no modifiers', () => {
+    const base = 'form'
+    const expected = 'form'
+    const result = QBem.modifiers(base)
+
+    expect(result).toBe(expected)
   })
 
   it('should return the base string with single object modifier', () => {
@@ -36,12 +49,10 @@ describe('QBem.modifiers', () => {
   it('should return the base string with mixed string and object modifiers', () => {
     const base = 'form'
     const expected = 'form--active form--dark-mode form--condensed'
-    const result = QBem.modifiers(
-      base,
-      { active: true, glass: false },
-      'dark-mode',
-      { collapsed: false, condensed: true }
-    )
+    const result = QBem.modifiers(base, { active: true, glass: false }, 'dark-mode', {
+      collapsed: false,
+      condensed: true
+    })
 
     expect(result).toBe(expected)
   })

@@ -2,7 +2,7 @@ import { QBem } from '../src'
 
 describe('bem.block', () => {
   const block = 'block'
-  let bem
+  let bem: QBem
 
   beforeEach(() => {
     bem = new QBem(block)
@@ -43,7 +43,7 @@ describe('bem.block', () => {
     const result = bem.block([
       { ['dark-mode']: true },
       { active: true, inactive: false },
-      { notThisOne: false },
+      { notThisOne: false }
     ])
 
     expect(result).toEqual(expected)

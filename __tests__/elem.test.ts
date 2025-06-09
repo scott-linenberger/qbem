@@ -1,9 +1,11 @@
-import { QBem, classes } from '../src'
+import { QBem } from '../src'
+
+const classes = QBem.classes
 
 describe('QBem.elem', () => {
   const block = 'block'
   const element = 'element'
-  let bem
+  let bem: QBem
 
   beforeEach(() => {
     bem = new QBem(block)
@@ -45,11 +47,7 @@ describe('QBem.elem', () => {
   it('should return the element classname with multiple object modifiers in BEM format', () => {
     const expected =
       'block__element block__element--active block__element--dark-mode block__element--condensed'
-    const result = bem.elem(element, [
-      { active: true },
-      { 'dark-mode': true },
-      { condensed: true },
-    ])
+    const result = bem.elem(element, [{ active: true }, { 'dark-mode': true }, { condensed: true }])
 
     expect(result).toEqual(expected)
   })
@@ -57,11 +55,7 @@ describe('QBem.elem', () => {
   it('should return the element classname with multiple mixed modifiers in BEM format', () => {
     const expected =
       'block__element block__element--active block__element--dark-mode block__element--condensed'
-    const result = bem.elem(element, [
-      { active: true },
-      'dark-mode',
-      { condensed: true },
-    ])
+    const result = bem.elem(element, [{ active: true }, 'dark-mode', { condensed: true }])
 
     expect(result).toEqual(expected)
   })
@@ -84,7 +78,7 @@ describe('QBem.elem', () => {
     const expected = 'block__element blueprintjs bootstrap'
     const result = bem.elem(element, null, {
       blueprintjs: true,
-      bootstrap: true,
+      bootstrap: true
     })
 
     expect(result).toEqual(expected)
@@ -96,10 +90,10 @@ describe('QBem.elem', () => {
       element,
       null,
       {
-        blueprintjs: true,
+        blueprintjs: true
       },
       {
-        bootstrap: true,
+        bootstrap: true
       }
     )
 
@@ -112,11 +106,11 @@ describe('QBem.elem', () => {
       element,
       null,
       {
-        blueprintjs: true,
+        blueprintjs: true
       },
       'core',
       {
-        bootstrap: true,
+        bootstrap: true
       },
       'scroller'
     )

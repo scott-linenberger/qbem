@@ -3,7 +3,7 @@ import { QBem } from '../src'
 describe('QBem.element', () => {
   const block = 'block'
   const element = 'element'
-  let bem
+  let bem: QBem
 
   beforeEach(() => {
     bem = new QBem(block)
@@ -48,7 +48,7 @@ describe('QBem.element', () => {
     const result = bem.element(element, [
       { active: true },
       { 'dark-mode': true },
-      { condensed: true },
+      { condensed: true }
     ])
 
     expect(result).toEqual(expected)
@@ -57,11 +57,7 @@ describe('QBem.element', () => {
   it('should return the element classname with multiple mixed modifiers in BEM format', () => {
     const expected =
       'block__element block__element--active block__element--dark-mode block__element--condensed'
-    const result = bem.element(element, [
-      { active: true },
-      'dark-mode',
-      { condensed: true },
-    ])
+    const result = bem.element(element, [{ active: true }, 'dark-mode', { condensed: true }])
 
     expect(result).toEqual(expected)
   })
@@ -84,7 +80,7 @@ describe('QBem.element', () => {
     const expected = 'block__element blueprintjs bootstrap'
     const result = bem.element(element, null, {
       blueprintjs: true,
-      bootstrap: true,
+      bootstrap: true
     })
 
     expect(result).toEqual(expected)
@@ -96,10 +92,10 @@ describe('QBem.element', () => {
       element,
       null,
       {
-        blueprintjs: true,
+        blueprintjs: true
       },
       {
-        bootstrap: true,
+        bootstrap: true
       }
     )
 
@@ -112,11 +108,11 @@ describe('QBem.element', () => {
       element,
       null,
       {
-        blueprintjs: true,
+        blueprintjs: true
       },
       'core',
       {
-        bootstrap: true,
+        bootstrap: true
       },
       'scroller'
     )
@@ -130,11 +126,11 @@ describe('QBem.element', () => {
       element,
       [{ isOn: false }],
       {
-        blueprintjs: true,
+        blueprintjs: true
       },
       'core',
       {
-        bootstrap: true,
+        bootstrap: true
       },
       'scroller'
     )

@@ -1,4 +1,6 @@
-import { QBem, classes } from '../src'
+import { QBem } from '../src'
+
+const classes = QBem.classes
 
 describe('classes', () => {
   it('should exist as an import', () => {

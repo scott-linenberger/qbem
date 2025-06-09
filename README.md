@@ -13,7 +13,7 @@ A quick [BEM][bem] helper! Flexible, Readable, BEM (Block, Element, Modifier).
 
 ```text
 -------------------------------------------------------------------
-|                   QUICK! BEM v3.0.0                             |
+|                             QUICK! BEM                          |
 -------------------------------------------------------------------
 +<    ,ad8888ba,    88888888ba                                   >+
 +<   d8"'    `"8b   88      "8b                                  >+
@@ -29,12 +29,6 @@ A quick [BEM][bem] helper! Flexible, Readable, BEM (Block, Element, Modifier).
 ```
 
 ## Quick Start
-
-## CHANGE LOG
-
-| Version          | Description                                                                                                    |
-| ---------------- | -------------------------------------------------------------------------------------------------------------- |
-| v3.0.0-alpha-xxx | Remove deprecated methods `blockWithModifier` and `elementWithModifier`. Add `classes` export + documentation. |
 
 ### Installation
 
@@ -236,8 +230,8 @@ bem.block([
   {
     mod1: true,
     mod2: false, // NOT applied
-    mod3: true,
-  },
+    mod3: true
+  }
 ]) // -> 'block block--mod1 block--mod2'
 
 /* multiple objects with single key */
@@ -257,7 +251,7 @@ bem.block(null, { class1: true }) // -> 'block class1'
 bem.block(null, {
   class1: true,
   class2: false, // NOT applied
-  class3: true,
+  class3: true
 }) // -> 'block class1 class2'
 
 /* multiple objects, single key */
@@ -281,8 +275,8 @@ bem.element([
   {
     mod1: true,
     mod2: false, // NOT applied
-    mod3: true,
-  },
+    mod3: true
+  }
 ])
 // -> 'block__element block__element--mod1 block__element--mod3'
 
@@ -304,12 +298,12 @@ bem.elem('element', null, { class1: true }) // -> 'block__element class1'
 bem.elem('element', null, {
   class1: true,
   class2: false, // NOT applied
-  class3: true,
+  class3: true
 })
 bem.element('element', null, {
   class1: true,
   class2: false, // NOT applied
-  class3: true,
+  class3: true
 }) // -> 'block__element class1 class3'
 
 /* multiple objects, single key */
@@ -360,17 +354,17 @@ as a standalone import from QBem for your convenience.
 ### Classes with string classnames
 
 ```ts
-import { classes } from 'qbem'
+import { QBem } from 'qbem'
 
-const output = classes('a', 'b', 'c') // "a b c"
+const output = QBem.classes('a', 'b', 'c') // "a b c"
 ```
 
 ### Classes with conditional classes
 
 ````ts
-import { classes } from 'qbem';
+import { QBem } from 'qbem';
 
-const output = classes('a', {
+const output = QBem.classes('a', {
   b: false,
   ['dark-mode']: true,
 }, 'c') // "a dark-mode c"
