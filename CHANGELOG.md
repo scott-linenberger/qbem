@@ -1,6 +1,12 @@
 # QBem Changelog
 
-## [4.0.0] - 2025-06-09
+## [4.0.2] - 2025-06-12
+
+### Changed
+
+- add bundlephobia badge back to README
+
+## [4.0.1] - 2025-06-09
 
 ### Changed
 

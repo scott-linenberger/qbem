@@ -6,6 +6,7 @@
 [![coverage](https://qbem.scottlinenberger.com/coverage/badge-functions.svg)](https://qbem.scottlinenberger.com/coverage/lcov-report/index.ts.html)
 [![License](https://badgen.net/npm/license/qbem)](https://github.com/scott-linenberger/qbem/blob/main/LICENSE)
 [![issues](https://badgen.net/github/open-issues/scott-linenberger/qbem?d=1)](https://github.com/scott-linenberger/qbem/issues)
+[![bundlephobia](https://badgen.net/bundlephobia/minzip/qbem)](https://bundlephobia.com/package/qbem)
 
 # Qbem
 
